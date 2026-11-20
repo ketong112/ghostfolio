@@ -1,0 +1,1 @@
+{"hooks":[{"actions":[{"command":"npx eslint \"$FILE\" --fix","timeoutMs":30000,"type":"command"}],"description":"Run ESLint on a JavaScript file right after it is saved, so style and import errors are caught immediately.","filePattern":"src/**/*.{js,jsx}","name":"lint-on-save","trigger":"PostFileSave"}]}
