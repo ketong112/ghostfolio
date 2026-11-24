@@ -1,0 +1,292 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create Vite + React app (`npm create vite@latest`, React template), install Vitest": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645417
+      }
+    ],
+    "1.2 Add MIT LICENSE, README, `.gitignore` (must NOT ignore `.kiro`), `vercel.json`": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645423
+      }
+    ],
+    "1.3 Verify `npm run build` produces a static `dist/` and `npm run dev` serves the page": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645433
+      }
+    ],
+    "2.1 `fetchToken(address)` — call `/latest/dex/tokens/{address}`, pick the": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645437
+      }
+    ],
+    "2.2 60s in-memory cache per address; batch multiple addresses per tick": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645440
+      }
+    ],
+    "2.3 Handle empty pairs + 404 + network failure (return `{ error }`, never throw": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645442
+      }
+    ],
+    "2.4 Unit tests with real sample payloads (live pair, dead pair, empty response)": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645457
+      }
+    ],
+    "3.1 `classify(quote, peakPriceUsd)` -> `alive | dying | dead` (pure functions)": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645465
+      }
+    ],
+    "3.2 `detectWail(prevStatus, nextStatus, prevPrice, nextPrice)` -> wail or null": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645468
+      }
+    ],
+    "3.3 Unit tests for every rule boundary (liquidity $99/$100, volume $0.99/$1,": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645474
+      }
+    ],
+    "4.1 Holdings CRUD in `localStorage` (add/merge/remove, buy price optional)": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645477
+      }
+    ],
+    "4.2 Peak-price tracking per holding; RIP date recorded on first dead classification": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645491
+      }
+    ],
+    "4.3 Wail history (max 20, newest first); \"Bury all\" clears everything": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645506
+      }
+    ],
+    "5.1 `AddHolding` — chain select + address + amount, with validation messages": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645508
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484893908
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484949176
+      }
+    ],
+    "5.2 `PortfolioSummary` — total value, 24h change, fog meter": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645513
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484651453
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484694834
+      }
+    ],
+    "5.3 `HoldingRow` — living/dying rows with status text (not colour alone)": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645518
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484698815
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484731689
+      }
+    ],
+    "5.4 `Graveyard` — ghost cards with RIP dates + bury button + \"risen\" state": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645525
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484827835
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484891709
+      }
+    ],
+    "5.5 `WailList` — timestamped wails + sound toggle (WebAudio, off by default)": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645540
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484800860
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484825683
+      }
+    ],
+    "6.1 Dark graveyard theme: fog layers, green/purple accents, ghost SVG favicon": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645556
+      }
+    ],
+    "6.2 Fog opacity tied to portfolio 24h absolute change": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645563
+      }
+    ],
+    "6.3 Legibility pass: \"ghost = dead coin\" understandable without docs": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645578
+      }
+    ],
+    "7.1 `usePortfolio` state + 60s poll tick, pause when tab hidden": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645582
+      }
+    ],
+    "7.2 Stale-price banner on refresh failure; \"updated HH:MM:SS\" label": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645589
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484951424
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795485120329
+      }
+    ],
+    "7.3 Wire wails (banner + animation + list + optional sound)": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645595
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484736160
+      },
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484798082
+      }
+    ],
+    "8.1 Deploy to Vercel (free), confirm the live URL loads and prices refresh": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645602
+      }
+    ],
+    "8.2 Manual checklist from design.md (live token, dead token, wail, persistence)": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645611
+      }
+    ],
+    "8.3 Run `npm test` — all unit tests green before submission": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645616
+      }
+    ],
+    "9.1 README: what it is, how to run, how Kiro was used": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645625
+      }
+    ],
+    "9.2 Demo video (<3 min, user records on the live site)": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645632
+      }
+    ],
+    "9.3 Devpost submission (Costume Contest) with repo + live URL + video": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484645641
+      }
+    ],
+    "5. UI components": [
+      {
+        "executionId": "11a0c7da-f325-4252-b784-4a0e23044d5a",
+        "chatSessionId": "sess_6fae29aa-67c0-494b-9623-c9bac997fc67",
+        "timestamp": 1795484949181
+      }
+    ]
+  }
+}

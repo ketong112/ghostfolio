@@ -35,7 +35,7 @@ export default function HoldingRow({ holding, quote, status, onRemove }) {
       <td>{pnl == null ? '—' : fmtUsd(pnl)}</td>
       <td>
         <span className="status-badge">
-          {status === 'dying' ? '☠ Dying' : '✦ Alive'}
+          {holding.risenAt ? '✅ Risen from the dead' : status === 'dying' ? '☠ Dying' : '✦ Alive'}
         </span>
       </td>
       <td>

@@ -64,6 +64,21 @@ h2 {
   margin: 1.5rem 0;
 }
 
+/* Empty state for new portfolios */
+.summary.empty {
+  text-align: center;
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  width: 100%;
+}
+
+.summary.empty .empty-hint {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
 .summary-stat {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -80,6 +95,20 @@ h2 {
 
 .summary-stat strong {
   font-size: 1.25rem;
+}
+
+.fog-meter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fog-bar {
+  display: inline-block;
+  width: 32px;
+  height: 6px;
+  background: var(--spirit-purple);
+  border-radius: 3px;
 }
 
 .pos {
@@ -208,6 +237,67 @@ th {
   50% {
     transform: translateY(-8px);
   }
+}
+
+@keyframes wail-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-4px);
+  }
+}
+
+.wail-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, rgba(255, 107, 107, 0.1), rgba(183, 140, 255, 0.1));
+  border-bottom: 2px solid var(--danger);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  z-index: 100;
+  animation: wail-float 2s ease-in-out infinite;
+}
+
+.wail-banner .ghost-emoji {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  animation: float 1.5s ease-in-out infinite;
+}
+
+.wail-banner .wail-message {
+  flex: 1;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.wail-banner .btn-dismiss {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--muted);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.wail-banner .btn-dismiss:hover {
+  background: var(--surface);
+  border-color: var(--danger);
+  color: var(--danger);
 }
 
 .wails ul {

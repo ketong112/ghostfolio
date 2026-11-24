@@ -33,6 +33,7 @@ export default function AddHolding({ onAdd, busy }) {
       setError('Enter an amount greater than 0.')
       return
     }
+    
     onAdd({
       chain,
       address: addr,

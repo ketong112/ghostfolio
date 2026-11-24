@@ -16,6 +16,12 @@ import {
 
 const POLL_MS = 60_000
 
+const WAIL_TEXT = {
+  fading: 'is fading — liquidity is thinning',
+  died: 'has died and joined the graveyard',
+  crashed: 'crashed more than 20% in one refresh',
+}
+
 // A short falling sine sweep — a ghost wail, generated at runtime (no audio file).
 function playWail() {
   try {
@@ -46,7 +52,12 @@ export default function App() {
   const [formNotice, setFormNotice] = useState('')
   const [stale, setStale] = useState(false)
   const [lastUpdated, setLastUpdated] = useState(null)
+  const [bannerDismissed, setBannerDismissed] = useState(false)
   const prevRef = useRef({}) // address -> { status, price }
+
+  // Show latest wail in banner (if any and not dismissed).
+  const latestWail = wails.length > 0 ? wails[0] : null
+  const showBanner = latestWail && !bannerDismissed
 
   // Persist holdings whenever they change.
   useEffect(() => saveHoldings(holdings), [holdings])
@@ -84,14 +95,27 @@ export default function App() {
         })
         if (soundOn) playWail()
       }
-      if (status === STATUS_DEAD && !h.diedAt) h.diedAt = Date.now()
-      if (status !== STATUS_DEAD && h.diedAt) h.diedAt = null // risen from the dead
+      if (status === STATUS_DEAD && !h.diedAt) {
+        h.diedAt = Date.now()
+        h.risenAt = null // clear risen when it becomes dead
+      }
+      if (status !== STATUS_DEAD && h.diedAt) {
+        // risen from the dead
+        h.risenAt = Date.now()
+        h.diedAt = null
+      }
+      if (status === STATUS_DEAD) {
+        h.risenAt = null // ensure risenAt is cleared if dead
+      }
       prevRef.current[h.address] = { status, price: quote?.priceUsd }
     }
 
     setQuotes((q) => ({ ...q, ...nextQuotes }))
     setHoldings(nextHoldings)
-    if (newWails.length > 0) setWails((w) => [...newWails, ...w].slice(0, 20))
+    if (newWails.length > 0) {
+      setWails((w) => [...newWails, ...w].slice(0, 20))
+      setBannerDismissed(false) // Reset banner dismissal when new wails arrive
+    }
     setStale(!anyOk)
     if (anyOk) setLastUpdated(new Date())
   }, [holdings, soundOn])
@@ -146,6 +170,7 @@ export default function App() {
           buyPriceUsd,
           peakPriceUsd: quote.priceUsd,
           diedAt: null,
+          risenAt: null,
         },
       ]
     })
@@ -199,6 +224,22 @@ export default function App() {
           A haunted portfolio tracker for memecoin traders. Dead coins become ghosts.
         </p>
       </header>
+
+      {showBanner && (
+        <div className="wail-banner" role="alert" aria-live="assertive">
+          <span className="ghost-emoji" aria-hidden="true">👻</span>
+          <span className="wail-message">
+            <strong>{latestWail.symbol}</strong> {WAIL_TEXT[latestWail.reason] ?? 'wailed'}
+          </span>
+          <button
+            className="btn-dismiss"
+            onClick={() => setBannerDismissed(true)}
+            aria-label="Dismiss wail alert"
+          >
+            ✕
+          </button>
+        </div>
+      )}
 
       <PortfolioSummary
         totalValue={totalValue}

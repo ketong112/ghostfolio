@@ -7,7 +7,7 @@ function fmtUsd(n) {
   })
 }
 
-export default function Graveyard({ ghosts, onRemove, onResurrect }) {
+export default function Graveyard({ ghosts, onRemove }) {
   if (ghosts.length === 0) {
     return (
       <section className="graveyard empty">
@@ -38,7 +38,6 @@ export default function Graveyard({ ghosts, onRemove, onResurrect }) {
           </article>
         ))}
       </div>
-      {onResurrect && null}
     </section>
   )
 }
