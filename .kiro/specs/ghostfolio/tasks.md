@@ -43,9 +43,9 @@
   - [x] 7.3 Wire wails (banner + animation + list + optional sound)
 
 - [ ] 8. Deploy + verify
-  - [ ] 8.1 Deploy to Vercel (free), confirm the live URL loads and prices refresh
+  - [x] 8.1 Deploy (GitHub Pages, not Vercel — project decision, see NOTES.md), live URL loads and prices refresh — deployed 24 Nov, verified live
   - [ ] 8.2 Manual checklist from design.md (live token, dead token, wail, persistence)
-  - [ ] 8.3 Run `npm test` — all unit tests green before submission
+  - [x] 8.3 Run `npm test` — all unit tests green before submission (18/18, verified 24 Nov)
 
 - [ ] 9. Submission materials
   - [ ] 9.1 README: what it is, how to run, how Kiro was used
